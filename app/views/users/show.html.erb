@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h1>HI, I'M SHIV!</h1>
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -16,18 +16,13 @@
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<p>
   <strong>Post:</strong>
-  <%= @user.posts %>
+  <%= @user.posts.all %>
 </p>
 
 <p>
   <strong>Comment:</strong>
-  <%= @user.comments %>
+  <%= @user.comments.all %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
