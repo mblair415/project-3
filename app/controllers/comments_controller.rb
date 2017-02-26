@@ -10,6 +10,8 @@ class CommentsController < ApplicationController
   # GET /comments/1
   # GET /comments/1.json
   def show
+    @comment = Comment.find_by_id(params[:id])
+    @post = Post.find_by_id(@comment.post_id)
   end
 
   # GET /comments/new
