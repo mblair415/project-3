@@ -1,29 +1,38 @@
 <p id="notice"><%= notice %></p>
 <h1>HI, I'M SHIV!</h1>
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+<div class="user-space">
+  <div class="card col m9 s12">
+    <div class="row">
+      <div class="user-name col s6">
+        <%= @user.user_name %>
+      </div>
+      <div class="join col s6">
+        <%= @user.created_at %>
+      </div>
+      <div class="col s6">
+        <b>Posts: </b><%= @user.posts.all.count %>
+      </div>
+      <div class="col s6">
+        <b>Comments: </b><%= @user.comments.all.count %>
+      </div>
+    </div>
+  </div>
+  <div class="profile-picture col m3 s12">
+    <a href="#{@user.profile_picture}"></a>
+  </div>
+  <div class="row">
+    <div class="s2 left">
+      <%= link_to edit_user_path(@user), :class => 'waves-effect waves-light btn' do %>
+        <i class="material-icons left">create</i>Edit
+      <% end %>
+    </div>
+    <div class="s2 right">
+      <%= link_to user_path(@user), action: "destroy", :class => 'waves-effect waves-light btn' do %>
+        <i class="material-icons right">delete</i>Delete
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>User name:</strong>
-  <%= @user.user_name %>
-</p>
-
-<p>
-  <strong>Post:</strong>
-  <%= @user.posts.all %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @user.comments.all %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
