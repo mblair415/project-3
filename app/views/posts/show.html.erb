@@ -35,7 +35,7 @@
   </div>
 </div>
 <div class="add-comment">
-  <%= link_to new_comment_path(@comment), :class => 'waves-effect waves-light btn' do %>
+  <%= link_to new_post_comment_path(@post, @comment), :class => 'waves-effect waves-light btn' do %>
     <i class="material-icons left">comment</i>Add Comment
   <% end %>
 </div>
