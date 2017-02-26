@@ -10,6 +10,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post = Post.find_by_id(params[:id])
+    @user = User.find_by_id(@post.user_id)
   end
 
   # GET /posts/new

@@ -7,7 +7,7 @@
     <div class="user-card card">
       <div class="row">
         <div class="col s3">
-          <a href="#{user.profile_picture}"></a> 
+          <a href="#{user.profile_picture}"></a>
         </div>
         <div class="col s9">
           <div class="user-details">
@@ -15,13 +15,15 @@
               <%= user.user_name %>
             </div>
             <div class="col s4">
-              <b>Join Date: </b><%= user.created_at %>
+              <b>Join Date: </b><%= user.created_at.to_formatted_s(:db) %>
             </div>
             <div class="col s4">
               <b>Post Count: </b><%= %>
+<!-- should work - doesn't work - user.posts.count -->
             </div>
             <div class="col s4">
               <b>Comment Count: </b><%= %>
+<!-- should work - doesn't work - user.comments.count -->
             </div>
           </div>
         </div>

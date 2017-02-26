@@ -8,7 +8,7 @@
         <%= @user.user_name %>
       </div>
       <div class="join col s6">
-        <%= @user.created_at %>
+        <%= @user.created_at.to_date %>
       </div>
       <div class="col s6">
         <b>Posts: </b><%= @user.posts.all.count %>
@@ -28,7 +28,7 @@
       <% end %>
     </div>
     <div class="s2 right">
-      <%= link_to user_path(@user), action: "destroy", :class => 'waves-effect waves-light btn' do %>
+      <%= link_to user_path(@user), action: "destroy", :class => 'waves-effect waves-light btn', data: { confirm: "Don't do it!  We'll miss you too much!" }  do %>
         <i class="material-icons right">delete</i>Delete
       <% end %>
     </div>
