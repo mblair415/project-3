@@ -17,7 +17,7 @@
   <div class="post card col s8">
     <div class="row">
       <div class="post-author col s6">
-        <b>Author: </b><%= @user.user_name %>
+        <b>Author: </b><%= link_to "#{@user.user_name}", user_path(@user.id) %>
       </div>
       <div class="post-author col s6">
         <b>Posted: </b><%= @user.created_at.to_date %>
@@ -33,6 +33,24 @@
   <div class="image col s4">
     <img src="<%= @post.image %>" alt="post image" />
   </div>
+</div>
+<div class="add-comment">
+  <%= link_to new_comment_path(@comment), :class => 'waves-effect waves-light btn' do %>
+    <i class="material-icons left">comment</i>Add Comment
+  <% end %>
+</div>
+
+<div class="comments col s12">
+  <% @post.comments.each do |comment| %>
+    <div class="card col s12">
+      <div class="comment-author col s12 center">
+        <b>Author: </b><%= link_to "#{User.find_by_id(comment.user_id).user_name}", user_path(User.find_by_id(comment.user_id)) %>
+      </div>
+      <div class="comment-content col s12">
+        <%= comment.content %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <%= link_to 'Back', posts_path %>
