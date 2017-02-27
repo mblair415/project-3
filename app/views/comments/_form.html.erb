@@ -1,4 +1,5 @@
-<%= form_for(post_comments_path) do |f| %>
+<%= form_for(@post, @comment), url: post_comments_path, method: :post do |f| %>
+
   <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -21,7 +22,7 @@
       </div>
     </div>
     <div class="image col s4">
-      <img src="<%= @post.image %>" alt="post image" />
+      <img src="<%= @post.post_image %>" alt="post image" />
     </div>
   </div>
 

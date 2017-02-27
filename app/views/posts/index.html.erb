@@ -1,32 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<h1>Posts Index</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>User</th>
-      <th>Comment</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= post.user %></td>
-        <td><%= post.comment %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div>
+  <% @posts.each do |post| %>
+  <div class="row card post-show-card">
+    <div class="post col s8">
+      <div class="row">
+        <div class="post-author col s6">
+         <b>Author: </b> <%= link_to "#{User.find_by_id(post.user_id)}", user_path(post.user_id) %>
+        </div>
+        <div class="post-author col s6">
+          <b>Posted: </b><%= post.created_at.to_date %>
+        </div>
+      </div>
+      <div class="post-title center col s12">
+        <h2><%= post.title %></h2>
+      </div>
+      <div class="post-content col s12">
+        <h6><%= post.content %></h6>
+      </div>
+    </div>
+    <div class="image col s4">
+      <img src="<%= post.post_image %>" alt="post image" />
+    </div>
+    <div class="post-comment">
+      <div class="card col s12">
+        <% if post.comments.last %>
+          <div class="comment-author col s12 center">
+            <b>Author: </b><%= link_to "#{User.find_by_id(post.comments.last.user_id).user_name}", user_path(post.comments.last.user_id) %>
+          </div>
+          <div class="comment-content col s12">
+            <%= post.comments.last.content %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
 
 <br>
 
