@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225021122) do
+ActiveRecord::Schema.define(version: 20170227231545) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -22,14 +22,31 @@ ActiveRecord::Schema.define(version: 20170225021122) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "models", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_models_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
-    t.string   "image"
     t.integer  "user_id"
     t.integer  "comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "post_image"
     t.index ["comment_id"], name: "index_posts_on_comment_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -38,14 +55,25 @@ ActiveRecord::Schema.define(version: 20170225021122) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "user_name"
-    t.string   "password"
     t.string   "profile_picture"
     t.integer  "post_id"
     t.integer  "comment_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.index ["comment_id"], name: "index_users_on_comment_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["post_id"], name: "index_users_on_post_id"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

@@ -18,6 +18,11 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
     @post = Post.find_by_id(params[:post_id])
+
+    @user = User.find_by_id(@post.user_id)
+#line above needs to be deleted when i get sessions working.  line below will replace it.
+    # @user = current_user
+
   end
 
   # GET /comments/1/edit
@@ -29,10 +34,14 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @post = Post.find_by_id(params[:post_id])
+    @comment.post = @post
+    @user = User.find_by_id(@post.user_id)
+#line above needs to be deleted when i get sessions working.  line below will replace it.
+    # @user = current_user
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @post, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -44,6 +53,11 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+    @post = Post.find_by_id(params[:post_id])
+    @user = User.find_by_id(@post.user_id)
+    #line above needs to be deleted when i get sessions working.  line below will replace it.
+        # @user = current_user
+
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
@@ -73,6 +87,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:content, :user_id, :post)
+      params.require(:comment).permit(:content, :user_id)
     end
 end

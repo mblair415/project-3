@@ -41,9 +41,12 @@
   <% end %>
 </div>
 
-<div class="comments col s12">
+<div class="comments-title">
+  <h4>Comments</h4>
+</div>
+<div class="card comments col s12">
   <% @post.comments.each do |comment| %>
-    <div class="card col s12">
+    <div class="col s12">
       <div class="comment-author col s12 center">
         <b>Author: </b><%= link_to "#{User.find_by_id(comment.user_id).user_name}", user_path(User.find_by_id(comment.user_id)) %>
       </div>
