@@ -21,10 +21,14 @@
     <%= f.text_field :title %>
   </div>
 
-<div class="field">
-  <%= f.label :content %>
-  <%= f.text_area :content, class: "form-control materialize-textarea"%>
-</div>
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "form-control materialize-textarea"%>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => @user.id %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
