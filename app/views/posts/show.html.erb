@@ -55,13 +55,10 @@
       <div class="comment-content col s12">
         <%= comment.content %>
       </div>
-      <% if current_user.id == comment.user_id %>
-
-
       <% if current_user.id === comment.user_id %>
         <div class="row">
           <div class="col s6 left">
-            <%= link_to edit_post_comment_path(comment), :class => 'waves-effect waves-light btn-small' do %>
+            <%= link_to edit_post_comment_path(comment), :class => 'waves-effect waves-light btn' do %>
               <i class="material-icons left">create</i>Edit Comment
             <% end %>
           </div>
@@ -71,10 +68,6 @@
             <% end %>
           </div>
         </div>
-      <% end %>
-
-
-
       <% end %>
     </div>
   <% end %>

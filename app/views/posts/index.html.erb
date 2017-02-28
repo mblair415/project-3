@@ -4,39 +4,53 @@
 
 <div>
   <% @posts.each do |post| %>
-  <div class="row card post-show-card">
-    <div class="post col s8">
-      <div class="row">
-        <div class="post-author col s6">
-         <b>Author: </b> <%= link_to "#{post.user.user_name}", user_path(post.user_id) %>
-        </div>
-        <div class="post-author col s6">
-          <b>Posted: </b><%= post.created_at.to_date %>
-        </div>
-      </div>
-      <div class="post-title center col s12">
-        <h2><%= link_to "#{post.title}", post_path(post.id) %></h2>
-      </div>
-      <div class="post-content col s12">
-        <h6><%= post.content %></h6>
-      </div>
-    </div>
-    <div class="image col s4">
-      <img src="<%= post.post_image %>" alt="post image" />
-    </div>
-    <div class="post-comment">
-      <div class="card col s12">
-        <% if post.comments.last %>
-          <div class="comment-author col s12 center">
-            <b>Author: </b><%= link_to "#{User.find_by_id(post.comments.last.user_id).user_name}", user_path(post.comments.last.user_id) %>
+    <div class="row card post-show-card">
+
+<!-- use jquery or something ... set boolean before @posts.each.
+when .each starts if boolean
+$('.post').addClass('left').removeClass('right')
+$('.image').addClass('right').removeClass('left')
+check status of boolean -->
+<!-- can do this in rails. -->
+<!-- @posts.each_with_index.  if index % 2 == 0 do a thing. if not other thing -->
+
+<!-- not tracking the user names right.
+need to remove models from schema. -->
+
+
+
+      <div class="post col s8">
+        <div class="row">
+          <div class="post-author col s6">
+           <b>Author: </b> <%= link_to "#{post.user.user_name}", user_path(post.user_id) %>
           </div>
-          <div class="comment-content col s12">
-            <%= post.comments.last.content %>
+          <div class="post-author col s6">
+            <b>Posted: </b><%= post.created_at.to_date %>
           </div>
-        <% end %>
+        </div>
+        <div class="post-title center col s12">
+          <h2><%= link_to "#{post.title}", post_path(post.id) %></h2>
+        </div>
+        <div class="post-content col s12">
+          <h6><%= post.content %></h6>
+        </div>
+      </div>
+      <div class="image col s4">
+        <img src="<%= post.post_image %>" alt="post image" />
+      </div>
+      <div class="post-comment">
+        <div class="card col s12">
+          <% if post.comments.last %>
+            <div class="comment-author col s12 center">
+              <b>Author: </b><%= link_to "#{User.find_by_id(post.comments.last.user_id).user_name}", user_path(post.comments.last.user_id) %>
+            </div>
+            <div class="comment-content col s12">
+              <%= post.comments.last.content %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
   <% end %>
 </div>
 

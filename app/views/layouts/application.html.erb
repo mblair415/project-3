@@ -16,12 +16,12 @@
 
         <!-- full sized navigation options -->
         <ul class="left hide-on-med-and-down">
-          <li><a href="/users/#{current_user.id}" class="amber-text accent-3">Profile</a></li>
+          <li><a href="/users/"+"#{current_user.id}" class="amber-text accent-3">Profile</a></li>
 
           <% if current_user %>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
           <% end %>
-          
+
           <% if !current_user %>
             <li><%= link_to "Sign Up", new_user_registration_path %></li>
             <li><%= link_to "Login", new_user_session_path %></li>
