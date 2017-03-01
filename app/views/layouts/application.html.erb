@@ -16,8 +16,6 @@
 
         <!-- full sized navigation options -->
         <ul class="left hide-on-med-and-down">
-          <li><a href="/users/"+"#{current_user.id}" class="grey-text lighten-4">Profile</a></li>
-
           <% if current_user %>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
           <% end %>
@@ -30,7 +28,6 @@
 
         <!-- navigation dropdown list for small screen -->
         <ul class="dropdown-content grey-text lighten-4" id="dropdown">
-          <li><a href="assets/pages/about.html" class="grey-text lighten-4">Profile</a></li>
           <% if current_user %>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
           <% end %>

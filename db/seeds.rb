@@ -36,11 +36,11 @@ user_data = [{
     profile_picture: "https://jeffreysterlingmd.files.wordpress.com/2014/06/steponnail.jpg"
   }, {
     user_name: "dancin feet",
-    email: "dancin@dancin@dancin",
+    email: "dancin@dancin.dancin",
     password: "aaaaaa",
     password_confirmation: "aaaaaa",
     profile_picture: "https://lastocean.files.wordpress.com/2011/07/hf1.jpg"
-  } ];
+  }];
 
 user = User.create(user_data)
 
@@ -80,11 +80,11 @@ post = Post.create(post_data)
 
 comment_data = [{
     content: "Nothing about this is OK with me.",
-    user_id: User.fourth.id,
+    user_id: User.last.id,
     post_id: Post.first.id
   }, {
     content: "As long as this thing covers my bunyons, I'd wear it.",
-    user_id: User.last.id,
+    user_id: User.third.id,
     post_id: Post.last.id
   }, {
     content: "Is it anti-microbial?  I've got a real thing going on with some foot fungus.  It's important to me that this help.  My wife says if I don't do something about it she may leave me and take the kids.  They're all I have.",
@@ -102,6 +102,14 @@ comment_data = [{
     content: ".... why didn't I think of that!?",
     user_id: User.second.id,
     post_id: Post.last.id
+  }, {
+    content: "whaaaaaat",
+    user_id: User.first.id,
+    post_id: Post.second.id
+  }, {
+    content: "Man, I loved that game as a kid.  Zelda was so cool with his sword and his green outfit.",
+    user_id: User.last.id,
+    post_id: Post.fifth.id
     }]
 
 comment = Comment.create(comment_data)
