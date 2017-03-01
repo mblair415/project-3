@@ -29,7 +29,8 @@
         </ul>
 
         <!-- navigation dropdown list for small screen -->
-        <ul class="dropdown-content grey darken-1" id="dropdown">
+        <ul class="dropdown-content grey-text lighten-4" id="dropdown">
+          <li><a href="assets/pages/about.html" class="grey-text lighten-4">Profile</a></li>
           <% if current_user %>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
           <% end %>
@@ -39,7 +40,6 @@
             <li><%= link_to "Login", new_user_session_path %></li>
           <% end %>
 
-          <li><a href="assets/pages/about.html" class="grey-text lighten-4">Profile</a></li>
         </ul>
       </div>
     </nav>

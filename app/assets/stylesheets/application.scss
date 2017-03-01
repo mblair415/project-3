@@ -17,15 +17,22 @@
 @import 'materialize.scss';
 
 body {
-  background-color: #F2F5ED
+  background-color: #F2F5ED;
 }
-.navbar-fixed {
-    background-color: #A9D3FF
+
+nav {
+  border-radius: 0px 0px 10px 10px;
+  background-color: #BBBAC6;
+}
+
+nav ul li:hover, .brand-logo:hover, .material-icons:hover {
+   background-color: white;
 }
 
 #dropdown {
   border-radius: 0 0 25px 0;
   border: 1px solid black;
+  color: #93ACB5;
 }
 
 .image {
@@ -34,4 +41,41 @@ body {
 
 .responsive-image {
   max-width: 100%;
+}
+
+.btn {
+  background-color: #C6D8C6;
+  color: #00586B;
+}
+
+.btn:hover {
+  background-color: #C6D8EF;
+  color: #00586B;
+}
+
+.post-comment {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.comment-area {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.post-show-card, .comment-area {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.post-details {
+  border: 1px solid #93ACB5;
+  border-radius: 15px;
+}
+
+.comments-title, .add-comment {
+  margin-left: 20px;
 }
