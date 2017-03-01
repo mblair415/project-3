@@ -1,3 +1,7 @@
+<div class="new-post card">
+
+<h3 class="center">Post</h3>
+
 <%= form_for(post) do |f| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -26,11 +30,19 @@
     <%= f.text_area :content, class: "form-control materialize-textarea"%>
   </div>
 
-  <div class="field">
-    <%= f.hidden_field :user_id, :value => @user.id %>
-  </div>
+  <% if !current_user %>
+    <div class="field">
+      <%= f.hidden_field :user_id, :value => @user.id %>
+    </div>
+  <% else %>
+    <div class="field">
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+</div>

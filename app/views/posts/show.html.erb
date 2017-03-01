@@ -4,7 +4,7 @@
   <div class="post-details col l8 m6 s12">
     <div class="row">
       <div class="author-image s6 left">
-        <img class="responsive-img" src="<%= @user.profile_picture %>" alt="member profile image goes here" />
+        <img class="responsive-img hero-image" src="<%= @user.profile_picture %>" alt="member profile image goes here" />
       </div>
       <div class="author-details-post-date s6 right">
         <div class="post-author col s12">
@@ -30,12 +30,12 @@
       <div class="row">
         <div class="col s6 left">
           <%= link_to edit_post_path(@post), :class => 'waves-effect waves-light btn' do %>
-          <i class="material-icons left">create</i>Edit
+            <i class="material-icons left">create</i>Edit
           <% end %>
         </div>
         <div class="col s6 right">
           <%= link_to post_path(@post), method: :delete, :class => 'waves-effect waves-light btn right', data: { confirm: "Dude, you sure you want to dump those kicks!?" }  do %>
-          <i class="material-icons right">delete</i>Delete
+            <i class="material-icons right">delete</i>Delete
           <% end %>
         </div>
       </div>
@@ -46,7 +46,7 @@
 <% if current_user %>
   <div class="add-comment">
     <%= link_to new_post_comment_path(@post, @comment), :class => 'waves-effect waves-light btn' do %>
-    <i class="material-icons left">comment</i>Add Comment
+      <i class="material-icons left">comment</i>Add Comment
     <% end %>
   </div>
 <% end %>
@@ -54,31 +54,41 @@
 <div class="comments-title">
   <h4>Comments</h4>
 </div>
-<div class="card comment-area col s12">
-  <% @post.comments.each do |comment| %>
-    <div class="post-comment col s12">
-      <div class="comment-author col s12 center">
-        <b>Author: </b><%= link_to "#{User.find_by_id(comment.user_id).user_name}", user_path(User.find_by_id(comment.user_id)) %>
-      </div>
-      <div class="comment-content col s12">
-        <%= comment.content %>
-      </div>
-      <% if current_user %>
-        <% if current_user.id === comment.user_id %>
-          <div class="comment-buttons row">
-            <div class="col s6 left">
-              <%= link_to edit_post_comment_path(comment), :class => 'waves-effect waves-light btn' do %>
-              <i class="material-icons left">create</i>Edit Comment
-              <% end %>
-            </div>
-            <div class="col s6 right">
-              <%= link_to post_comment_path(@post, comment), method: :delete, :class => 'waves-effect waves-light btn right', data: { confirm: "Dude, you sure you want to drop that comment!?" }  do %>
-              <i class="material-icons right">delete</i>Delete Comment
-              <% end %>
+
+<% if @post.comments.count > 0 %>
+  <div class="card comment-area col s12">
+    <% @post.comments.each do |comment| %>
+      <div class="post-comment col s12">
+        <div class="row">
+          <div class="comment-image col s3 m1 left">
+            <img class="responsive-img" src="<%= User.find_by_id(comment.user_id).profile_picture %>" alt="member profile image goes here" />
+          </div>
+          <div class="comment-author col s7">
+            <b>Author: </b><%= link_to "#{User.find_by_id(comment.user_id).user_name}", user_path(User.find_by_id(comment.user_id)) %>
+            <div class="comment-content col s12">
+              <%= comment.content %>
             </div>
           </div>
+        </div>
+
+        <% if current_user %>
+          <% if current_user.id === comment.user_id %>
+            <div class="comment-buttons row">
+              <div class="col s6 left">
+                <%= link_to edit_post_comment_path(@post, comment), :class => 'waves-effect waves-light btn' do %>
+                  <i class="material-icons left">create</i>Edit Comment
+                <% end %>
+              </div>
+              <div class="col s6 right">
+                <%= link_to post_comment_path(@post, comment), method: :delete, :class => 'waves-effect waves-light btn right', data: { confirm: "Dude, you sure you want to drop that comment!?" }  do %>
+                  <i class="material-icons right">delete</i>Delete Comment
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+      </div>
+    <% end %>
+  </div>
+
+<% end %>

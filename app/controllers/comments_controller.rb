@@ -23,6 +23,8 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    @post = Post.find_by_id(params[:post_id])
+    @comment = Comment.find_by_id(params[:id])
   end
 
   # POST /comments
@@ -48,6 +50,7 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1.json
   def update
     @post = Post.find_by_id(params[:post_id])
+    @comment = Comment.find_by_id(params[:id])
     @user = current_user
 
     respond_to do |format|
