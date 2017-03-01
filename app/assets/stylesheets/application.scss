@@ -39,6 +39,12 @@ nav ul li:hover, .brand-logo:hover, .material-icons:hover {
   max-width: 400px;
 }
 
+.author-image {
+  margin-top: 5px;
+  max-height: 100px;
+  max-width: 100px;
+}
+
 .responsive-image {
   max-width: 100%;
 }
@@ -74,6 +80,7 @@ nav ul li:hover, .brand-logo:hover, .material-icons:hover {
 .post-details {
   border: 1px solid #93ACB5;
   border-radius: 15px;
+  margin-bottom: 5px;
 }
 
 .comments-title, .add-comment {

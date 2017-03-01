@@ -21,7 +21,7 @@ user_data = [{
     email: "slippers@slippers.slippers",
     password: "aaaaaa",
     password_confirmation: "aaaaaa",
-    profile_picture: "http://img3.wikia.nocookie.net/__cb20120429151547/disney/images/archive/4/44/20120708201717!Cinderella_Photo.jpg"
+    profile_picture: "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Cinderella_disney.png/220px-Cinderella_disney.png"
   }, {
     user_name: "gimme dem shoes",
     email: "oz@oz.oz",
