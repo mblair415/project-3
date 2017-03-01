@@ -62,6 +62,8 @@
               <i class="material-icons left">create</i>Edit Comment
             <% end %>
           </div>
+
+<!-- NOT WORKING -->
           <div class="col s6 right">
             <%= link_to post_comment_path(comment), action: "destroy", :class => 'waves-effect waves-light btn right', data: { confirm: "Dude, you sure you want to drop that comment!?" }  do %>
               <i class="material-icons right">delete</i>Delete Comment

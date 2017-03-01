@@ -18,11 +18,7 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
     @post = Post.find_by_id(params[:post_id])
-
-    @user = User.find_by_id(@post.user_id)
-#line above needs to be deleted when i get sessions working.  line below will replace it.
-    # @user = current_user
-
+    @user = current_user
   end
 
   # GET /comments/1/edit
@@ -35,9 +31,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @post = Post.find_by_id(params[:post_id])
     @comment.post = @post
-    @user = User.find_by_id(@post.user_id)
-#line above needs to be deleted when i get sessions working.  line below will replace it.
-    # @user = current_user
+    @user = current_user
 
     respond_to do |format|
       if @comment.save
@@ -54,13 +48,11 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1.json
   def update
     @post = Post.find_by_id(params[:post_id])
-    @user = User.find_by_id(@post.user_id)
-    #line above needs to be deleted when i get sessions working.  line below will replace it.
-        # @user = current_user
+    @user = current_user
 
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to post_path(@post), notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
@@ -71,8 +63,9 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1
   # DELETE /comments/1.json
+# DOES NOT WORK
   def destroy
-    @post = Post.find_by_id(params[:post_id])
+    @post = Post.find_by_id(params[:id])
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to post_path(@post), notice: 'Comment was successfully destroyed.' }

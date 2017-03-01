@@ -85,6 +85,14 @@ comment_data = [{
     content: "Is it anti-microbial?  I've got a real thing going on with some foot fungus.  It's important to me that this help.  My wife says if I don't do something about it she may leave me and take the kids.  They're all I have.",
     user_id: User.fourth.id,
     post_id: Post.third.id
+  }, {
+    content: "I heard Missy Elliot had a pair of these.",
+    user_id: User.third.id,
+    post_id: Post.second.id
+  }, {
+    content: "Yeah, but I heard she was hanging out with Ray Charles and he kicked her out cause her shoes were too loud.",
+    user_id: User.fourth.id,
+    post_id: Post.second.id
   }]
 
 comment = Comment.create(comment_data)
