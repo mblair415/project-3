@@ -57,8 +57,13 @@
 <div class="card comment-area col s12">
   <% @post.comments.each do |comment| %>
     <div class="post-comment col s12">
-      <div class="comment-author col s12 center">
-        <b>Author: </b><%= link_to "#{User.find_by_id(comment.user_id).user_name}", user_path(User.find_by_id(comment.user_id)) %>
+      <div class="row">
+        <div class="comment-image col s6 m4 left">
+          <img class="responsive-img" src="<%= User.find_by_id(comment.user_id).profile_picture %>" alt="member profile image goes here" />
+        </div>
+        <div class="comment-author col s6 m8">
+          <b>Author: </b><%= link_to "#{User.find_by_id(comment.user_id).user_name}", user_path(User.find_by_id(comment.user_id)) %>
+        </div>
       </div>
       <div class="comment-content col s12">
         <%= comment.content %>

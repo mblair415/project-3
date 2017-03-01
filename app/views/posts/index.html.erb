@@ -7,14 +7,27 @@
 <!-- NEXT STEPS
 * readme
 * finish UI stuff.
-  new post button needs to be a real button
   go through each page again and look for bugs
   why does happy feet not appear?
+  comments are appearing to be from the same user ignoring seed data.
   make changes to the comments on each post.
 * add more seed data.
 * make the posts alternate between post image left+post text right and visa versa
   should be able to use index of post % 2 == 0 to alternate on way and the other
-  should be able to add and remove classes (left and right) to do it. -->
+  should be able to add and remove classes (left and right) to do it.
+* limit number of posts on the front page.
+  * set up a button to view more posts that will grab the next x posts and place them on front page.
+* changes for the create post page.
+  * make sure to change that button to a real button
+  * get rid of the back link
+* changes for the log in and sign up pages.
+  * make sure buttons are "buttons"
+* stick all the forms in some kind of window for it ....
+  * ideas
+    * card
+    * padding between edges of window and stuff
+    * wtf does forgot your password do?
+-->
 
       <div class="post-details col s12 m6 l8">
         <div class="row">
@@ -55,5 +68,9 @@
 </div>
 
 <% if current_user %>
-  <%= link_to 'New Post', new_post_path %>
+  <div class="add-comment">
+    <%= link_to new_post_path, :class => 'waves-effect waves-light btn' do %>
+      <i class="material-icons left">comment</i>New Post
+    <% end %>
+  </div>
 <% end %>

@@ -69,6 +69,11 @@ post_data = [{
     content: "It's dangerous to go alone.  Take these ... shoes.",
     post_image: "http://www.mypaintedshoes.com/images/6370.jpg",
     user_id: User.third.id
+  }, {
+    title: "Keep em crispy",
+    content: "This is the best way to keep ya soles crispy.  Ya gotta bring a lotta towels though.",
+    post_image: "https://media.giphy.com/media/nRTNEdfV9YVSU/giphy.gif",
+    user_id: User.last.id
   }];
 
 post = Post.create(post_data)
@@ -93,6 +98,10 @@ comment_data = [{
     content: "Yeah, but I heard she was hanging out with Ray Charles and he kicked her out cause her shoes were too loud.",
     user_id: User.fourth.id,
     post_id: Post.second.id
-  }]
+  }, {
+    content: ".... why didn't I think of that!?",
+    user_id: User.second.id,
+    post_id: Post.last.id
+    }]
 
 comment = Comment.create(comment_data)
