@@ -29,16 +29,18 @@
         </div>
       </div>
     </div>
-    <div class="recent-post">
-      <div class="recent-post-title">
-        Most Recent Post
+    <% if user.posts.count %>
+      <div class="recent-post">
+        <div class="recent-post-title">
+          Most Recent Post
+        </div>
+        <div class="recent-post-details">
+          <%= @posts.all.find_by_id(user.user_id).title %>
+          <br>
+          <%= @posts.all.find_by_id(user.user_id).content %>
+        </div>
       </div>
-      <div class="recent-post-details">
-        <%= @posts.all.find_by_id(user.user_id).title %>
-        <br>
-        <%= @posts.all.find_by_id(user.user_id).content %>
-      </div>
-    </div>
+    <% end %>
     <%= link_to 'Show', user %>
     <%= link_to 'Edit', edit_user_path(user) %>
     <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>

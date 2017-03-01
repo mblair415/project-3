@@ -3,14 +3,49 @@
   <head>
     <title>Sneaker Seeker</title>
     <%= csrf_meta_tags %>
-
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <nav>
+      <div class="navbar-fixed">
+        <a href="/posts" class="brand-logo center grey-text lighten-4">Sneaker Seeker</a>
+        <a href="#" data-activates='dropdown' class="button-collapse dropdown-button grey-text lighten-4"><i class="material-icons">menu</i></a>
+
+        <!-- full sized navigation options -->
+        <ul class="left hide-on-med-and-down">
+          <li><a href="/users/"+"#{current_user.id}" class="grey-text lighten-4">Profile</a></li>
+
+          <% if current_user %>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          <% end %>
+
+          <% if !current_user %>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+          <% end %>
+        </ul>
+
+        <!-- navigation dropdown list for small screen -->
+        <ul class="dropdown-content grey-text lighten-4" id="dropdown">
+          <li><a href="assets/pages/about.html" class="grey-text lighten-4">Profile</a></li>
+          <% if current_user %>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          <% end %>
+
+          <% if !current_user %>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+          <% end %>
+
+        </ul>
+      </div>
+    </nav>
+
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>

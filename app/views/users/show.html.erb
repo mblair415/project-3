@@ -1,38 +1,46 @@
 <p id="notice"><%= notice %></p>
-<h1>HI, I'M SHIV!</h1>
 
 <div class="user-space">
-  <div class="card col m9 s12">
-    <div class="row">
-      <div class="user-name col s6">
-        <%= @user.user_name %>
-      </div>
-      <div class="join col s6">
-        <%= @user.created_at.to_date %>
-      </div>
-      <div class="col s6">
-        <b>Posts: </b><%= @user.posts.all.count %>
-      </div>
-      <div class="col s6">
-        <b>Comments: </b><%= @user.comments.all.count %>
+  <div class="card post-show-card col m9 s12">
+    <div class="post-details">
+      <div class="row">
+        <div class="author-image2 s6 left">
+          <img class="responsive-img" src="<%= @user.profile_picture %>" alt="member profile image goes here" />
+        </div>
+        <div class="author-details-post-date s6 right">
+          <div class="post-author col s12">
+            <%= @user.user_name %>
+          </div>
+          <div class="post-author col s12">
+            <b>Member Since: </b><%= @user.created_at.to_date %>
+          </div>
+          <div class="col s12">
+            <b>Posts: </b><%= @user.posts.all.count %>
+          </div>
+          <div class="col s12">
+            <b>Comments: </b><%= @user.comments.all.count %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="profile-picture col m3 s12">
     <a href="#{@user.profile_picture}"></a>
   </div>
-  <div class="row">
-    <div class="s2 left">
-      <%= link_to edit_user_path(@user), :class => 'waves-effect waves-light btn' do %>
-        <i class="material-icons left">create</i>Edit
-      <% end %>
-    </div>
-    <div class="s2 right">
-      <%= link_to user_path(@user), action: "destroy", :class => 'waves-effect waves-light btn', data: { confirm: "Don't do it!  We'll miss you too much!" }  do %>
-        <i class="material-icons right">delete</i>Delete
-      <% end %>
-    </div>
-  </div>
+  <% if current_user %>
+    <% if current_user.id === @user.id %>
+    ` <div class="row">
+        <div class="s2 left">
+          <%= link_to edit_user_path(@user), :class => 'waves-effect waves-light btn' do %>
+            <i class="material-icons left">create</i>Edit
+          <% end %>
+        </div>
+        <div class="s2 right">
+          <%= link_to user_path(@user), action: "destroy", :class => 'waves-effect waves-light btn', data: { confirm: "Don't do it!  We'll miss you too much!" }  do %>
+            <i class="material-icons right">delete</i>Delete
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
-
-<%= link_to 'Back', users_path %>
