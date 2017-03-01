@@ -11,12 +11,12 @@
   <body>
     <nav>
       <div class="navbar-fixed">
-        <a href="/posts" class="brand-logo center amber-text accent-3">Sneaker Seeker</a>
-        <a href="#" data-activates='dropdown' class="button-collapse dropdown-button"><i class="material-icons">menu</i></a>
+        <a href="/posts" class="brand-logo center grey-text lighten-4">Sneaker Seeker</a>
+        <a href="#" data-activates='dropdown' class="button-collapse dropdown-button grey-text lighten-4"><i class="material-icons">menu</i></a>
 
         <!-- full sized navigation options -->
         <ul class="left hide-on-med-and-down">
-          <li><a href="/users/"+"#{current_user.id}" class="amber-text accent-3">Profile</a></li>
+          <li><a href="/users/"+"#{current_user.id}" class="grey-text lighten-4">Profile</a></li>
 
           <% if current_user %>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
@@ -39,7 +39,7 @@
             <li><%= link_to "Login", new_user_session_path %></li>
           <% end %>
 
-          <li><a href="assets/pages/about.html" class="amber-text accent-3">Profile</a></li>
+          <li><a href="assets/pages/about.html" class="grey-text lighten-4">Profile</a></li>
         </ul>
       </div>
     </nav>

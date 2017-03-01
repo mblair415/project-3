@@ -14,12 +14,7 @@ check status of boolean -->
 <!-- can do this in rails. -->
 <!-- @posts.each_with_index.  if index % 2 == 0 do a thing. if not other thing -->
 
-<!-- not tracking the user names right.
-need to remove models from schema. -->
-
-
-
-      <div class="post col s8">
+      <div class="post col s12 m8">
         <div class="row">
           <div class="post-author col s6">
            <b>Author: </b> <%= link_to "#{post.user.user_name}", user_path(post.user_id) %>
@@ -35,7 +30,7 @@ need to remove models from schema. -->
           <h6><%= post.content %></h6>
         </div>
       </div>
-      <div class="image col s4">
+      <div class="image col m4 s12">
         <img class="responsive-image" src="<%= post.post_image %>" alt="post image" />
       </div>
       <div class="post-comment">

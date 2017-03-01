@@ -29,7 +29,7 @@
         <% end %>
       </div>
       <div class="col s6 right">
-        <%= link_to post_path(@post), action: "destroy", :class => 'waves-effect waves-light btn right', data: { confirm: "Dude, you sure you want to dump those kicks!?" }  do %>
+        <%= link_to post_path(@post), method: :delete, :class => 'waves-effect waves-light btn right', data: { confirm: "Dude, you sure you want to dump those kicks!?" }  do %>
           <i class="material-icons right">delete</i>Delete
         <% end %>
       </div>
@@ -63,9 +63,9 @@
             <% end %>
           </div>
 
-<!-- NOT WORKING -->
+<!-- NOT WORKING.  have tried action: "destroy" and method: :delete-->
           <div class="col s6 right">
-            <%= link_to post_comment_path(comment), action: "destroy", :class => 'waves-effect waves-light btn right', data: { confirm: "Dude, you sure you want to drop that comment!?" }  do %>
+            <%= link_to post_comment_path(@post, comment), method: :delete, :class => 'waves-effect waves-light btn right', data: { confirm: "Dude, you sure you want to drop that comment!?" }  do %>
               <i class="material-icons right">delete</i>Delete Comment
             <% end %>
           </div>

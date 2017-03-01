@@ -65,13 +65,15 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.json
 # DOES NOT WORK
   def destroy
-    @post = Post.find_by_id(params[:id])
+    @post = Post.find_by_id(params[:post_id])
+    @comment = Comment.find_by_id(params[:id])
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to post_path(@post), notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

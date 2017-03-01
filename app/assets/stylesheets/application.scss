@@ -15,3 +15,23 @@
  */
 
 @import 'materialize.scss';
+
+body {
+  background-color: #F2F5ED
+}
+.navbar-fixed {
+    background-color: #A9D3FF
+}
+
+#dropdown {
+  border-radius: 0 0 25px 0;
+  border: 1px solid black;
+}
+
+.image {
+  max-width: 400px;
+}
+
+.responsive-image {
+  max-width: 100%;
+}
