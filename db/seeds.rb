@@ -21,7 +21,7 @@ user_data = [{
     email: "slippers@slippers.slippers",
     password: "aaaaaa",
     password_confirmation: "aaaaaa",
-    profile_picture: "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Cinderella_disney.png/220px-Cinderella_disney.png"
+    profile_picture: "http://www.oceanhouseevents.com/files/7314/6722/0855/cinderella.jpg"
   }, {
     user_name: "gimme dem shoes",
     email: "oz@oz.oz",
@@ -29,18 +29,18 @@ user_data = [{
     password_confirmation: "aaaaaa",
     profile_picture: "http://www.motionpictureimaging.com/wp-content/uploads/sites/8/2012/03/38-Movie-Review-The-Wizard-of-Oz.jpg"
   }, {
-    user_name: "dancin feet",
-    email: "dancin@dancin@dancin",
-    password: "aaaaaa",
-    password_confirmation: "aaaaaa",
-    profile_picture: "https://lastocean.files.wordpress.com/2011/07/hf1.jpg"
-  }, {
     user_name: "shoes matter",
     email: "shoe@shoe.shoe",
     password: "aaaaaa",
     password_confirmation: "aaaaaa",
     profile_picture: "https://jeffreysterlingmd.files.wordpress.com/2014/06/steponnail.jpg"
-  }];
+  }, {
+    user_name: "dancin feet",
+    email: "dancin@dancin@dancin",
+    password: "aaaaaa",
+    password_confirmation: "aaaaaa",
+    profile_picture: "https://lastocean.files.wordpress.com/2011/07/hf1.jpg"
+  } ];
 
 user = User.create(user_data)
 

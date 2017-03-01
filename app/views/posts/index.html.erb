@@ -12,8 +12,11 @@ check status of boolean -->
 <!-- can do this in rails. -->
 <!-- @posts.each_with_index.  if index % 2 == 0 do a thing. if not other thing -->
 
-      <div class="post col s12 m6 l8">
+      <div class="post-details col s12 m6 l8">
         <div class="row">
+          <div class="author-image s6 left">
+            <img class="responsive-img" src="<%= post.user.profile_picture %>" alt="member profile image goes here" />
+          </div>
           <div class="post-author col s6">
            <b>Author: </b> <%= link_to "#{post.user.user_name}", user_path(post.user_id) %>
           </div>
@@ -47,5 +50,6 @@ check status of boolean -->
   <% end %>
 </div>
 
-
-<%= link_to 'New Post', new_post_path %>
+<% if current_user %>
+  <%= link_to 'New Post', new_post_path %>
+<% end %>

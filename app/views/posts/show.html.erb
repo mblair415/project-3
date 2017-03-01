@@ -4,7 +4,7 @@
   <div class="post-details col l8 m6 s12">
     <div class="row">
       <div class="author-image s6 left">
-        <img class="responsive-img circular" src="<%= @user.profile_picture %>" alt="member profile image" />
+        <img class="responsive-img" src="<%= @user.profile_picture %>" alt="member profile image goes here" />
       </div>
       <div class="author-details-post-date s6 right">
         <div class="post-author col s12">
@@ -25,27 +25,31 @@
   <div class="image col l4 m6 s12">
     <img class="responsive-image" src="<%= @post.post_image %>" alt="post image" />
   </div>
-  <% if current_user.id === @post.user_id %>
-    <div class="row">
-      <div class="col s6 left">
-        <%= link_to edit_post_path(@post), :class => 'waves-effect waves-light btn' do %>
+  <% if current_user %>
+    <% if current_user.id === @post.user_id %>
+      <div class="row">
+        <div class="col s6 left">
+          <%= link_to edit_post_path(@post), :class => 'waves-effect waves-light btn' do %>
           <i class="material-icons left">create</i>Edit
-        <% end %>
-      </div>
-      <div class="col s6 right">
-        <%= link_to post_path(@post), method: :delete, :class => 'waves-effect waves-light btn right', data: { confirm: "Dude, you sure you want to dump those kicks!?" }  do %>
+          <% end %>
+        </div>
+        <div class="col s6 right">
+          <%= link_to post_path(@post), method: :delete, :class => 'waves-effect waves-light btn right', data: { confirm: "Dude, you sure you want to dump those kicks!?" }  do %>
           <i class="material-icons right">delete</i>Delete
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
 
-<div class="add-comment">
-  <%= link_to new_post_comment_path(@post, @comment), :class => 'waves-effect waves-light btn' do %>
+<% if current_user %>
+  <div class="add-comment">
+    <%= link_to new_post_comment_path(@post, @comment), :class => 'waves-effect waves-light btn' do %>
     <i class="material-icons left">comment</i>Add Comment
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
 
 <div class="comments-title">
   <h4>Comments</h4>
@@ -59,19 +63,21 @@
       <div class="comment-content col s12">
         <%= comment.content %>
       </div>
-      <% if current_user.id === comment.user_id %>
-        <div class="comment-buttons row">
-          <div class="col s6 left">
-            <%= link_to edit_post_comment_path(comment), :class => 'waves-effect waves-light btn' do %>
+      <% if current_user %>
+        <% if current_user.id === comment.user_id %>
+          <div class="comment-buttons row">
+            <div class="col s6 left">
+              <%= link_to edit_post_comment_path(comment), :class => 'waves-effect waves-light btn' do %>
               <i class="material-icons left">create</i>Edit Comment
-            <% end %>
-          </div>
-          <div class="col s6 right">
-            <%= link_to post_comment_path(@post, comment), method: :delete, :class => 'waves-effect waves-light btn right', data: { confirm: "Dude, you sure you want to drop that comment!?" }  do %>
+              <% end %>
+            </div>
+            <div class="col s6 right">
+              <%= link_to post_comment_path(@post, comment), method: :delete, :class => 'waves-effect waves-light btn right', data: { confirm: "Dude, you sure you want to drop that comment!?" }  do %>
               <i class="material-icons right">delete</i>Delete Comment
-            <% end %>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   <% end %>
