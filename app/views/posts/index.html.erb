@@ -4,13 +4,17 @@
   <% @posts.each do |post| %>
     <div class="row card post-show-card">
 
-<!-- use jquery or something ... set boolean before @posts.each.
-when .each starts if boolean
-$('.post').addClass('left').removeClass('right')
-$('.image').addClass('right').removeClass('left')
-check status of boolean -->
-<!-- can do this in rails. -->
-<!-- @posts.each_with_index.  if index % 2 == 0 do a thing. if not other thing -->
+<!-- NEXT STEPS
+* readme
+* finish UI stuff.
+  new post button needs to be a real button
+  go through each page again and look for bugs
+  why does happy feet not appear?
+  make changes to the comments on each post.
+* add more seed data.
+* make the posts alternate between post image left+post text right and visa versa
+  should be able to use index of post % 2 == 0 to alternate on way and the other
+  should be able to add and remove classes (left and right) to do it. -->
 
       <div class="post-details col s12 m6 l8">
         <div class="row">

@@ -45,6 +45,12 @@ nav ul li:hover, .brand-logo:hover, .material-icons:hover {
   max-width: 100px;
 }
 
+.author-image2 {
+  margin: 15px;
+  max-height: 300px;
+  max-width: 300px;
+}
+
 .responsive-image {
   max-width: 100%;
 }
@@ -71,6 +77,7 @@ nav ul li:hover, .brand-logo:hover, .material-icons:hover {
 
 .post-show-card, .comment-area {
   padding-top: 20px;
+  padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
   margin-left: 20px;
