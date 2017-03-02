@@ -23,7 +23,7 @@
           </div>
           <div class="author-details-post-date s6 right">
             <div class="post-author col s12">
-              <b>Author: </b> <%= link_to "#{current_user.user_name}", user_path(current_user.id) %>
+              <b>Author: </b> <%= link_to "#{current_user.user_name}", user_path(current_user.id), class: "link-text" %>
             </div>
             <div class="post-author col 12">
               <b>Posted: </b><%= current_user.created_at.to_date %>

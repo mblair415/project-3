@@ -8,7 +8,7 @@
       </div>
       <div class="author-details-post-date s6 right">
         <div class="post-author col s12">
-          <b>Author: </b> <%= link_to "#{@user.user_name}", user_path(@user.id) %>
+          <b>Author: </b> <%= link_to "#{@user.user_name}", user_path(@user.id), class: "link-text" %>
         </div>
         <div class="post-author col 12">
           <b>Posted: </b><%= @user.created_at.to_date %>
@@ -66,7 +66,7 @@
             <img class="responsive-img" src="<%= User.find_by_id(comment.user_id).profile_picture %>" alt="member profile image goes here" />
           </div>
           <div class="comment-author col s7">
-            <b>Author: </b><%= link_to "#{User.find_by_id(comment.user_id).user_name}", user_path(User.find_by_id(comment.user_id)) %>
+            <b>Author: </b><%= link_to "#{User.find_by_id(comment.user_id).user_name}", user_path(User.find_by_id(comment.user_id)), class: "link-text" %>
             <div class="comment-content col s12">
               <%= comment.content %>
             </div>
