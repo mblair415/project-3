@@ -1,5 +1,5 @@
 # Sneaker Seeker
-Sneaker Seeker on Heroku:
+Sneaker Seeker on Heroku:  <https://mblair-sneaker-seeker.herokuapp.com/>
 
 ## Elevator pitch
 Sneaker Seeker is the place for the sneakerhead community.  Whether you’re hardcore peepin for the next instacop, or if you’re more casually just looking to talk about some footwear, this is the spot!
