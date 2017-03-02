@@ -4,14 +4,14 @@
   <div class="card post-show-card col m9 s12">
     <div class="post-details">
       <div class="row">
-        <div class="author-image2 s6 left">
+        <div class="author-image2 s4 left">
           <img class="responsive-img" src="<%= @user.profile_picture %>" alt="member profile image goes here" />
         </div>
-        <div class="author-details-post-date s6 right">
-          <div class="post-author col s12">
+        <div class="author-details-post-date s8 right">
+          <div class="post-author-name col s12">
             <%= @user.user_name %>
           </div>
-          <div class="post-author col s12">
+          <div class="post-author-date col s12">
             <b>Member Since: </b><%= @user.created_at.to_date %>
           </div>
           <div class="col s12">
@@ -44,5 +44,5 @@
       </div>
     <% end %>
   <% end %>
-  
+
 </div>

@@ -17,14 +17,14 @@
             <img class="responsive-img" src="<%= post.user.profile_picture %>" alt="member profile image goes here" />
           </div>
           <div class="post-author col s6">
-           <b>Author: </b> <%= link_to "#{post.user.user_name}", user_path(post.user_id) %>
+            <b>Author: </b> <%= link_to "#{post.user.user_name}", user_path(post.user_id) %>
           </div>
           <div class="post-author col s6">
             <b>Posted: </b><%= post.created_at.to_date %>
           </div>
         </div>
         <div class="post-title center col s12">
-          <h3><%= link_to "#{post.title}", post_path(post.id) %></h3>
+          <h4><b><%= link_to "#{post.title}", post_path(post.id) %></b></h4>
         </div>
         <div class="post-content col s12">
           <h6><%= post.content %></h6>

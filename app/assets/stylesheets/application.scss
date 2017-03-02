@@ -18,6 +18,7 @@
 // global
 body {
   background-color: #F2F5ED;
+  font-family: 'Raleway', sans-serif;
 }
 
 nav {
@@ -32,6 +33,11 @@ img {
 nav ul li:hover, .brand-logo:hover, .material-icons:hover {
    background-color: white;
    border-radius: 30px;
+}
+
+.brand-logo {
+  font-family: 'Bungee Inline', cursive;
+  color: #4E0000 !important;
 }
 
 #dropdown {
@@ -75,8 +81,8 @@ nav ul li:hover, .brand-logo:hover, .material-icons:hover {
 }
 
 .btn:hover {
-  background-color: #C6D8EF;
-  color: #00586B;
+  background-color: #4E0000;
+  color: white;
 }
 
 .post-comment {
@@ -124,4 +130,16 @@ nav ul li:hover, .brand-logo:hover, .material-icons:hover {
   margin-left: 20px;
   margin-right: 20px;
   padding: 20px;
+}
+
+// user show
+.post-author-name {
+  font-size: 30px;
+  color: #BBBAC6;
+  margin: 20px;
+}
+
+.post-author {
+  font-size: large;
+  margin: 10px;
 }
