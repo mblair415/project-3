@@ -1,21 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<!-- NEXT STEPS
-* readme
-* finish UI stuff.
-  go through each page again and look for bugs
-* add more seed data.
-* make the posts alternate between post image left+post text right and visa versa
-  should be able to use index of post % 2 == 0 to alternate on way and the other
-  should be able to add and remove classes (left and right) to do it.
-* limit number of posts on the front page.
-  * set up a button to view more posts that will grab the next x posts and place them on front page.
-* changes for the create and edit post page (save comment is the right button).
-  * make sure to change that button to a real button
-* changes for the log in and sign up pages.
-  * make sure buttons are "buttons" (save comment is the right button)
--->
-
 <% if current_user %>
   <div class="add-comment">
     <%= link_to new_post_path, :class => 'waves-effect waves-light btn' do %>

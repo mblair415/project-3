@@ -25,6 +25,7 @@
   <div class="image col l4 m6 s12">
     <img class="responsive-image" src="<%= @post.post_image %>" alt="post image" />
   </div>
+
   <% if current_user %>
     <% if current_user.id === @post.user_id %>
       <div class="row">
@@ -41,6 +42,7 @@
       </div>
     <% end %>
   <% end %>
+
 </div>
 
 <% if current_user %>
@@ -87,6 +89,7 @@
             </div>
           <% end %>
         <% end %>
+        
       </div>
     <% end %>
   </div>
