@@ -4,14 +4,14 @@
   <div class="card post-show-card col m9 s12">
     <div class="post-details">
       <div class="row">
-        <div class="author-image2 s6 left">
+        <div class="author-image2 s4 left">
           <img class="responsive-img" src="<%= @user.profile_picture %>" alt="member profile image goes here" />
         </div>
-        <div class="author-details-post-date s6 right">
-          <div class="post-author col s12">
+        <div class="author-details-post-date s8 right">
+          <div class="post-author-name col s12">
             <%= @user.user_name %>
           </div>
-          <div class="post-author col s12">
+          <div class="post-author-date col s12">
             <b>Member Since: </b><%= @user.created_at.to_date %>
           </div>
           <div class="col s12">
@@ -31,12 +31,12 @@
   <% if current_user %>
     <% if current_user.id === @user.id %>
       <div class="row">
-        <div class="s2 left">
+        <div class="user-edit s2 left">
           <%= link_to edit_user_path(@user), :class => 'waves-effect waves-light btn' do %>
             <i class="material-icons left">create</i>Edit
           <% end %>
         </div>
-        <div class="s2 right">
+        <div class="user-delete s2 right">
           <%= link_to user_path(@user), action: "destroy", :class => 'waves-effect waves-light btn', data: { confirm: "Don't do it!  We'll miss you too much!" }  do %>
             <i class="material-icons right">delete</i>Delete
           <% end %>
@@ -44,5 +44,5 @@
       </div>
     <% end %>
   <% end %>
-  
+
 </div>
