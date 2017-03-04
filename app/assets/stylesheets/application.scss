@@ -48,6 +48,32 @@ nav ul li:hover, .brand-logo:hover, .material-icons:hover {
   color: #93ACB5;
 }
 
+.btn {
+  background-color: #C6D8C6;
+  color: #00586B;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  background-color: #850000;
+  color: white;
+  border-radius: 8px;
+}
+
+a.link-text {
+  color: #850000;
+  font-weight: 900;
+}
+
+a.link-text:hover {
+  background-color: #850000;
+  color: white;
+  border-radius: 8px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+// post
 .image {
   max-width: 400px;
   max-height: 400px;
@@ -75,31 +101,6 @@ nav ul li:hover, .brand-logo:hover, .material-icons:hover {
 
 .responsive-image {
   max-width: 100%;
-}
-
-.btn {
-  background-color: #C6D8C6;
-  color: #00586B;
-  border-radius: 8px;
-}
-
-.btn:hover {
-  background-color: #850000;
-  color: white;
-  border-radius: 8px;
-}
-
-a.link-text {
-  color: #850000;
-  font-weight: 900;
-}
-
-a.link-text:hover {
-  background-color: #850000;
-  color: white;
-  border-radius: 8px;
-  padding-left: 3px;
-  padding-right: 3px;
 }
 
 .post-comment {
