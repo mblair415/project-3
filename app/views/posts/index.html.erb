@@ -11,10 +11,8 @@
 <div>
   <% @posts.each do |post| %>
     <div class="row card post-show-card">
-<!-- here -->
       <div class="post-details col s12 m6 l8 <%= post.id % 2 == 0 ? "left" : "right" %>">
         <div class="row">
-<!-- here -->
           <div class="author-image s6 <%= post.id % 2 == 0 ? "left" : "right" %>">
             <img class="responsive-img" src="<%= post.user.profile_picture %>" alt="member profile image goes here" />
           </div>
@@ -32,7 +30,6 @@
           <h6><%= post.content %></h6>
         </div>
       </div>
-<!-- here -->
       <div class="image col l4 m6 s12 <%= post.id % 2 == 0 ? "left" : "right" %>">
         <img class="responsive-image" src="<%= post.post_image %>" alt="post image" />
       </div>
